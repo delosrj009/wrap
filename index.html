@@ -1,11 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wrap</title>
+    <meta name="author" content="@jdelreyes" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        margin: 0;
+        padding: 2em 0.5em;
+      }
+
+      header {
+        display: none;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0.5em;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+      }
+
+      .collage {
+        display: grid;
+        grid-gap: 0.5em;
+        grid-template-columns: repeat(auto-fit, 250px);
+        grid-auto-rows: 250px;
+      }
+
+      article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: #ffeead;
+        border: 2px solid black;
+        border-radius: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Wrap</h1>
+      </header>
+      <div class="container">
+        <div class="collage">
+          <article><img src="assets/1.jpeg" alt="" /></article>
+          <article><img src="assets/2.jpeg" alt="" /></article>
+          <article><img src="assets/3.jpeg" alt="" /></article>
+          <article><img src="assets/4.jpeg" alt="" /></article>
+          <article><img src="assets/5.jpeg" alt="" /></article>
+          <article><img src="assets/6.jpeg" alt="" /></article>
+          <article><img src="assets/7.jpeg" alt="" /></article>
+          <article><img src="assets/8.jpeg" alt="" /></article>
+          <article><img src="assets/9.jpeg" alt="" /></article>
+        </div>
+      </div>
+    </main>
+    <script></script>
+  </body>
 </html>
