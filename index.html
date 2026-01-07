@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wrap</title>
     <meta name="author" content="@jdelreyes" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
     <style>
       *,
       *::before,
@@ -40,11 +41,13 @@
         padding: 0.5em;
       }
 
-      img {
+      img,
+      video {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 25px 25px 0 0;
+        display: block;
       }
 
       .collage {
@@ -220,7 +223,7 @@
         },
         5: {
           filename: "5.jpeg",
-          alt: "Gaming at Rec Room (I won)",
+          alt: "Gaming at Rec Room. we also went here around valentine's day, we played the fighting game and u got annoyed bc i only played 1 character",
           emoji: "🕹️",
         },
         6: {
@@ -323,6 +326,41 @@
           alt: "our first locker together. nandiyan ung penguin for emotional support hahah. do u still have that?",
           emoji: "🐧",
         },
+        26: {
+          filename: "IMG_2691.jpeg",
+          alt: "kisses tiktok trend at college. i was enjoying it but didnt show it bc someone might see u kissing me lol. but thanks for this.",
+          emoji: "😗",
+        },
+        27: {
+          filename: "IMG_1935.jpeg",
+          alt: "UNO with u. u remember exploding kitten card game? i bought it bc i knew we would play it, even if we broke up already </3",
+          emoji: "🃏",
+        },
+        28: {
+          filename: "IMG_2056.jpeg",
+          alt: "pokemon with u. i remember we would show each other our pokemon's evolution. u sent me that, it had a kpop/anime background music",
+          emoji: "🦭",
+        },
+        29: {
+          filename: "IMG_1703.jpeg",
+          alt: "racing games at rec room. this was my favorite game since this is the only time i win against u <3",
+          emoji: "🚗",
+        },
+        30: {
+          filename: "IMG_2609.jpeg",
+          alt: "first clubbing. i didnt even notice that u got touchy to me but everyone did. u were falling in love with me",
+          emoji: "🥃",
+        },
+        31: {
+          filename: "IMG_2881.mp4",
+          alt: "PNE with u. this was perfect for me bc i really like this band. i knew 95% of the songs. thank u mai, azhly, symon",
+          emoji: "🎸",
+        },
+        32: {
+          filename: "IMG_0984.mp4",
+          alt: "harana. arah and daddy were looking at me on the balcony. i was only looking at u",
+          emoji: "",
+        },
       };
 
       const collageEl = document.querySelector(".collage");
@@ -339,19 +377,35 @@
       });
 
       for (let imgId in imgObj) {
+        const item = imgObj[imgId];
+        const fn = item.filename;
+        const alt = item.alt;
+        const emoji = item.emoji.repeat(7);
+
+        const mediaTag = fn.endsWith(".mp4")
+          ? `
+              <video
+                autoplay
+                muted
+                playsinline
+                loop
+              >
+                <source src="./assets/${fn}" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>`
+          : `<img src="./assets/${fn}" alt="${alt}" />`;
+
         htmlText += `
-          <fieldset class="card-container">
-            <article>
-              <img src="./assets/${imgObj[imgId]["filename"]}" alt="${
-          imgObj[imgId]["alt"]
-        }" />            
-            </article>
-            <legend><span class="imgId">${imgId}</span> <span class="emoji">${imgObj[
-          imgId
-        ]["emoji"].repeat(7)}</span></legend>
-            <p class="img-caption">${imgObj[imgId]["alt"]}</p>
-          </fieldset>
-        `;
+      <fieldset class="card-container">
+        <article>
+          ${mediaTag}
+        </article>
+        <legend>
+          <span class="imgId">${imgId}</span>
+          <span class="emoji">${emoji}</span>
+        </legend>
+        <p class="img-caption">${alt}</p>
+      </fieldset>`;
       }
 
       collageEl.innerHTML += htmlText;
