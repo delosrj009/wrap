@@ -185,15 +185,17 @@
               <h2 class="section-heading">Collage</h2>
               <p class="section-heading-para">
                 This section was designed to be a collage but I wanted to put
-                captions on each image so it turned out this way. So this is
-                now called an image card printed by an instant camera
+                captions on each image so it turned out this way. So this is now
+                called an image card printed by an instant camera
               </p>
             </div>
           </div>
         </section>
       </div>
     </main>
-    <footer><audio src="bg-sound.mp3" loop></audio></footer>
+    <footer>
+      <!-- <audio src="bg-sound.mp3" loop></audio> -->
+    </footer>
     <script>
       const imgObj = {
         1: {
@@ -316,15 +318,22 @@
           alt: "goodbye bebegirl iloveyou. im so sorry. it's so hard for me now. youre gonna be successful and have a good life",
           emoji: "😽",
         },
+        25: {
+          filename: "IMG_2700.mp4",
+          alt: "our first locker together. nandiyan ung penguin for emotional support hahah. do u still have that?",
+          emoji: "🐧",
+        },
       };
 
       const collageEl = document.querySelector(".collage");
-      const audioEl = document.querySelector("audio");
+      const audioEl = new Audio("./bg-sound.mp3");
       const triggerBtn = document.querySelector(".trigger-btn");
       let htmlText = ``;
 
       triggerBtn.addEventListener("click", () => {
         document.querySelector(".btn-container").classList.add("hidden");
+        // TODO: uncomment later
+        audioEl.loop = true;
         audioEl.play();
         collageEl.classList.remove("hidden");
       });
@@ -347,7 +356,7 @@
 
       collageEl.innerHTML += htmlText;
     </script>
-    <!-- !Do not uncomment -->
+    <!-- !DO NOT UNCOMMENT -->
     <!-- <script type="module" src="script.js"></script> -->
   </body>
 </html>
