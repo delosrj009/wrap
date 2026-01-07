@@ -1,8 +1,7 @@
 # wrap
 
-this website shows card-like photos with captions as if it's taken out of instant camera
+this website shows portrait photos with captions as if it's taken out of an instant camera.
 
-## message
+## Installation
 
-missing u rn
-
+open `index.html` file

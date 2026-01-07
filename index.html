@@ -14,7 +14,7 @@
 
       html {
         font-size: 16px;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: Georgia, "Times New Roman", Times, serif;
       }
 
       body {
@@ -62,11 +62,33 @@
         padding: 0;
       }
 
+      .section-heading-container {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       .btn-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 55vh;
+      }
+
+      .section-heading,
+      .section-heading-para {
+        padding: 1em 2em;
+        background-color: rgba(1, 1, 1, 0.9);
+        border-radius: 25px;
+      }
+
+      .section-heading {
+        font-size: 3rem;
+      }
+
+      .section-heading-para {
+        font-size: 1.8rem;
       }
 
       legend {
@@ -119,6 +141,18 @@
         cursor: pointer;
       }
 
+      .flex {
+        display: flex;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .align-center {
+        align-items: center;
+      }
+
       @keyframes collage-transition {
         from {
           transform: translateY(5%);
@@ -145,25 +179,36 @@
             class="btn primary-btn trigger-btn"
           />
         </div>
-        <div class="collage hidden"></div>
+        <section class="collage-section">
+          <div class="collage hidden">
+            <div class="section-heading-container">
+              <h2 class="section-heading">Collage</h2>
+              <p class="section-heading-para">
+                This section was designed to be a collage but I wanted to put
+                captions on each image so it turned out this way. So this is
+                now called an image card printed by an instant camera
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
-    <footer><audio src="bg-sound.mp3" autoplay loop></audio></footer>
+    <footer><audio src="bg-sound.mp3" loop></audio></footer>
     <script>
       const imgObj = {
         1: {
           filename: "1.jpeg",
-          alt: "CNE Sky Cable, our first hangout outside together",
+          alt: "CNE Sky Cable, our first hangout outside together. everything was so easy when i was with you. i could touch the sky",
           emoji: "🚠",
         },
         2: {
           filename: "2.jpeg",
-          alt: "First New Year Together, you were crying that day. also my mom cried bc i wasn't home",
+          alt: "First New Year Together, you were crying that day. also my mom cried bc i wasn't home. that's why i never did it again",
           emoji: "🥳",
         },
         3: {
           filename: "3.jpeg",
-          alt: "CNE Sign with Anime Hat. it looks good on you, you look so cutie",
+          alt: "CNE Sign with Anime Hat. it looks good on you, you look so cutie. i wish i held ur hand so that u didnt cry that day",
           emoji: "🐰",
         },
         4: {
@@ -183,17 +228,17 @@
         },
         7: {
           filename: "7.jpeg",
-          alt: "Inuman Session at Aya's house. surrounded by people, focused on us",
+          alt: "Inuman Session at Aya's house. surrounded by people, focused on us. we look so casual here",
           emoji: "🍻",
         },
         8: {
           filename: "8.jpeg",
-          alt: "Inuman Session at Harbourfront. illegal drinking and puking. it's worth it though",
+          alt: "Inuman Session at Harbourfront. illegal drinking and puking. event though its so cold, it's worth it",
           emoji: "🥂",
         },
         9: {
           filename: "9.jpeg",
-          alt: "Listening on the same Earpods. idk why we didn't shareplay, might be bc i lost my left airpods",
+          alt: "Listening on the same Earpods. idk why we didn't shareplay, might be bc i lost my left airpod. u always thought of me",
           emoji: "🎧",
         },
         10: {
@@ -203,12 +248,12 @@
         },
         11: {
           filename: "11.jpeg",
-          alt: "First Day at College. why so mad hahah. it's for memories",
+          alt: "First Day at College. why so mad hahah. it's for memories. i wish i had the end of college pic. i deleted it sadly",
           emoji: "🏫",
         },
         12: {
           filename: "12.jpeg",
-          alt: "College para sa kinabukasan. i enjoy studying with u. ive always hoped for u to have a good life.",
+          alt: "College para sa kinabukasan. i enjoyed studying with u. ive always hoped for u to have a good life.",
           emoji: "🌘",
         },
         13: {
@@ -218,12 +263,12 @@
         },
         14: {
           filename: "14.jpeg",
-          alt: "Panot. lagi ko tong view sa klase. made me more motivated",
+          alt: "Panot. lagi ko tong view sa klase. made me more motivated to not be a panot",
           emoji: "👴",
         },
         15: {
           filename: "15.jpeg",
-          alt: "Buying a gift for bebe. i still have mine, im wondering if u still have this?",
+          alt: "Buying a gift for bebe. so cute. i still have mine, im wondering if u still have this?",
           emoji: "🦄",
         },
         16: {
@@ -238,7 +283,7 @@
         },
         18: {
           filename: "18.jpeg",
-          alt: "looking for a movie to watch at Stafford Park. first and last at this park",
+          alt: "looking for a movie to watch at Stafford Park. first and last at this park. u had good hidden places",
           emoji: "🛝",
         },
         19: {
@@ -248,7 +293,7 @@
         },
         20: {
           filename: "20.jpeg",
-          alt: "Chilling rolling at the Robert Hicks Park. i like hanging out with u",
+          alt: "Chilling rolling at the Robert Hicks Park. i liked hanging out with u. this park stores so many memories",
           emoji: "🛹",
         },
         21: {
@@ -258,7 +303,7 @@
         },
         22: {
           filename: "22.jpeg",
-          alt: "same hat, same clothing. we didnt plan the plad outfit",
+          alt: "same hat, same clothing. we didnt plan the plad outfit and yet, we're rocking the same outfit. u rock",
           emoji: "🧥",
         },
         23: {
@@ -268,7 +313,7 @@
         },
         24: {
           filename: "24.jpeg",
-          alt: "goodbye bebegirl iloveyou. im so sorry. it's so hard for me now",
+          alt: "goodbye bebegirl iloveyou. im so sorry. it's so hard for me now. youre gonna be successful and have a good life",
           emoji: "😽",
         },
       };
@@ -276,7 +321,7 @@
       const collageEl = document.querySelector(".collage");
       const audioEl = document.querySelector("audio");
       const triggerBtn = document.querySelector(".trigger-btn");
-      let htmlText = "";
+      let htmlText = ``;
 
       triggerBtn.addEventListener("click", () => {
         document.querySelector(".btn-container").classList.add("hidden");
@@ -300,7 +345,9 @@
         `;
       }
 
-      collageEl.innerHTML = htmlText;
+      collageEl.innerHTML += htmlText;
     </script>
+    <!-- !Do not uncomment -->
+    <!-- <script type="module" src="script.js"></script> -->
   </body>
 </html>
