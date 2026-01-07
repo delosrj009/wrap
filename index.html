@@ -51,6 +51,7 @@
         grid-gap: 0.5em;
         grid-template-columns: repeat(auto-fit, 500px);
         grid-auto-rows: 600px;
+        animation: collage-transition 1s;
       }
 
       .card-container {
@@ -115,6 +116,27 @@
       .trigger-btn:hover {
         font-size: 2rem;
         cursor: pointer;
+      }
+
+      @keyframes collage-transition {
+        from {
+          transform: translateY(5%);
+          opacity: 0.5;
+        }
+
+        to {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+      }
+
+      @keyframes beating {
+        from {
+          scale: 1;
+        }
+        to {
+          scale: 1.1;
+        }
       }
     </style>
   </head>
