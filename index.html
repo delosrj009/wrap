@@ -14,6 +14,7 @@
 
       html {
         font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
       }
 
       body {
@@ -48,9 +49,9 @@
 
       .collage {
         display: grid;
-        grid-gap: 0.5em;
+        grid-gap: 4em 1em;
         grid-template-columns: repeat(auto-fit, 500px);
-        grid-auto-rows: 600px;
+        grid-auto-rows: 640px;
         animation: collage-transition 1s;
       }
 
@@ -70,7 +71,7 @@
 
       legend {
         text-align: center;
-        font-size: 1.4rem;
+        font-size: 2rem;
       }
 
       .imgId {
@@ -129,15 +130,6 @@
           opacity: 1;
         }
       }
-
-      @keyframes beating {
-        from {
-          scale: 1;
-        }
-        to {
-          scale: 1.1;
-        }
-      }
     </style>
   </head>
   <body>
@@ -159,104 +151,124 @@
     <footer><audio src="bg-sound.mp3" autoplay loop></audio></footer>
     <script>
       const imgObj = {
-        1: { filename: "1.jpeg", alt: "CNE Sky Cable", emoji: "🚠" },
-        2: { filename: "2.jpeg", alt: "First New Year Together", emoji: "🥳" },
-        3: { filename: "3.jpeg", alt: "CNE Sign with Anime Hat", emoji: "🐰" },
-        4: { filename: "4.jpeg", alt: "Kisses on my Face", emoji: "💋" },
+        1: {
+          filename: "1.jpeg",
+          alt: "CNE Sky Cable, our first hangout outside together",
+          emoji: "🚠",
+        },
+        2: {
+          filename: "2.jpeg",
+          alt: "First New Year Together, you were crying that day. also my mom cried bc i wasn't home",
+          emoji: "🥳",
+        },
+        3: {
+          filename: "3.jpeg",
+          alt: "CNE Sign with Anime Hat. it looks good on you, you look so cutie",
+          emoji: "🐰",
+        },
+        4: {
+          filename: "4.jpeg",
+          alt: "Kisses on my Face. my favorite tiktok trend that you've ever done",
+          emoji: "💋",
+        },
         5: {
           filename: "5.jpeg",
           alt: "Gaming at Rec Room (I won)",
           emoji: "🕹️",
         },
-        6: { filename: "6.jpeg", alt: "Mcdonald's love", emoji: "🍔" },
+        6: {
+          filename: "6.jpeg",
+          alt: "Mcdonald's love. i only wanted to work bc u worked <3",
+          emoji: "🍔",
+        },
         7: {
           filename: "7.jpeg",
-          alt: "Inuman Session at Aya's house",
+          alt: "Inuman Session at Aya's house. surrounded by people, focused on us",
           emoji: "🍻",
         },
         8: {
           filename: "8.jpeg",
-          alt: "Inuman Session at Harbourfront",
+          alt: "Inuman Session at Harbourfront. illegal drinking and puking. it's worth it though",
           emoji: "🥂",
         },
         9: {
           filename: "9.jpeg",
-          alt: "Listening on the same Earpods",
+          alt: "Listening on the same Earpods. idk why we didn't shareplay, might be bc i lost my left airpods",
           emoji: "🎧",
         },
         10: {
           filename: "10.jpeg",
-          alt: "Niagara Portrait",
+          alt: "Niagara Portrait. i wish i didnt hesitate to take a picture with u. ill cherish this",
           emoji: "💦",
         },
         11: {
           filename: "11.jpeg",
-          alt: "First Day at College",
+          alt: "First Day at College. why so mad hahah. it's for memories",
           emoji: "🏫",
         },
         12: {
           filename: "12.jpeg",
-          alt: "College para sa kinabukasan",
+          alt: "College para sa kinabukasan. i enjoy studying with u. ive always hoped for u to have a good life.",
           emoji: "🌘",
         },
         13: {
           filename: "13.jpeg",
-          alt: "Pretty",
+          alt: "Pretty. as always",
           emoji: "🧚‍♂️",
         },
         14: {
           filename: "14.jpeg",
-          alt: "Panot",
+          alt: "Panot. lagi ko tong view sa klase. made me more motivated",
           emoji: "👴",
         },
         15: {
           filename: "15.jpeg",
-          alt: "Buying a gift for bebe",
+          alt: "Buying a gift for bebe. i still have mine, im wondering if u still have this?",
           emoji: "🦄",
         },
         16: {
           filename: "16.jpeg",
-          alt: "Looking at the drip with symon and azhly",
+          alt: "Looking at the drip with symon and azhly. we danced a tiktok song here",
           emoji: "🩲",
         },
         17: {
           filename: "17.jpeg",
-          alt: "sunset's as beautiful as you are",
+          alt: "sunset's as beautiful as you are. first house tour. thank u mai. i enjoyed your company",
           emoji: "🌅",
         },
         18: {
           filename: "18.jpeg",
-          alt: "looking for a movie to watch at Stafford Park",
+          alt: "looking for a movie to watch at Stafford Park. first and last at this park",
           emoji: "🛝",
         },
         19: {
           filename: "19.jpeg",
-          alt: "foggy day on the way to the rec room",
+          alt: "foggy day on the way to the rec room. good environment for a good time",
           emoji: "🌫️",
         },
         20: {
           filename: "20.jpeg",
-          alt: "Chilling rolling at the Robert Hicks Park",
+          alt: "Chilling rolling at the Robert Hicks Park. i like hanging out with u",
           emoji: "🛹",
         },
         21: {
           filename: "21.jpeg",
-          alt: "oink",
+          alt: "oink, do you still have this?",
           emoji: "🐽",
         },
         22: {
           filename: "22.jpeg",
-          alt: "same hat, same clothing",
+          alt: "same hat, same clothing. we didnt plan the plad outfit",
           emoji: "🧥",
         },
         23: {
           filename: "23.jpeg",
-          alt: "first hangout outside together",
+          alt: "first hangout outside together. it seemed like u wanted to hangout with dniz more but i didnt mind",
           emoji: "😅",
         },
         24: {
           filename: "24.jpeg",
-          alt: "goodbye bebegirl iloveyou",
+          alt: "goodbye bebegirl iloveyou. im so sorry. it's so hard for me now",
           emoji: "😽",
         },
       };
@@ -280,9 +292,9 @@
           imgObj[imgId]["alt"]
         }" />            
             </article>
-            <legend><span class="imgId">${imgId}</span> ${imgObj[imgId][
-          "emoji"
-        ].repeat(7)}</legend>
+            <legend><span class="imgId">${imgId}</span> <span class="emoji">${imgObj[
+          imgId
+        ]["emoji"].repeat(7)}</span></legend>
             <p class="img-caption">${imgObj[imgId]["alt"]}</p>
           </fieldset>
         `;
