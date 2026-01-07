@@ -29,7 +29,7 @@
 
       main {
         padding: 2em 0.5em;
-        background-image: url('assets/main-bg.jpg');
+        background-image: url("assets/main-bg.jpg");
       }
 
       .container {
@@ -50,17 +50,30 @@
         display: grid;
         grid-gap: 0.5em;
         grid-template-columns: repeat(auto-fit, 250px);
-        grid-auto-rows: 300px;
+        grid-auto-rows: 350px;
+      }
+
+      .card-container {
+        border: 2px solid black;
+        border-radius: 25px;
+        background-color: antiquewhite;
+        padding: 0;
+      }
+
+      legend {
+        text-align: center;
+        font-size: 1.4rem;
       }
 
       article {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        border: 2px solid black;
-        border-radius: 25px;
-        background-color: antiquewhite;
+        height: 250px;
+      }
+
+      .img-caption {
+        padding: 0 0.5em;
       }
 
       /* utilities */
@@ -81,17 +94,30 @@
     <footer></footer>
     <script>
       const imgObj = {
-        1: { filename: "1.jpeg", alt: "CNE Sky Cable" },
-        2: { filename: "2.jpeg", alt: "First New Year Together" },
-        3: { filename: "3.jpeg", alt: "CNE Sign with Anime Hat" },
-        4: { filename: "4.jpeg", alt: "Kisses on my Face" },
-        5: { filename: "5.jpeg", alt: "Gaming at Rec Room (I won)" },
-        6: { filename: "6.jpeg", alt: "Mcdonald's love" },
-        7: { filename: "7.jpeg", alt: "Inuman Session at Aya's house" },
-        8: { filename: "8.jpeg", alt: "Inuman Session at Harbourfront" },
+        1: { filename: "1.jpeg", alt: "CNE Sky Cable", emoji: "🚠" },
+        2: { filename: "2.jpeg", alt: "First New Year Together", emoji: "🥳" },
+        3: { filename: "3.jpeg", alt: "CNE Sign with Anime Hat", emoji: "🐰" },
+        4: { filename: "4.jpeg", alt: "Kisses on my Face", emoji: "💋" },
+        5: {
+          filename: "5.jpeg",
+          alt: "Gaming at Rec Room (I won)",
+          emoji: "🕹️",
+        },
+        6: { filename: "6.jpeg", alt: "Mcdonald's love", emoji: "🍔" },
+        7: {
+          filename: "7.jpeg",
+          alt: "Inuman Session at Aya's house",
+          emoji: "🍻",
+        },
+        8: {
+          filename: "8.jpeg",
+          alt: "Inuman Session at Harbourfront",
+          emoji: "🥂",
+        },
         9: {
           filename: "9.jpeg",
           alt: "Listening on the same Earpods",
+          emoji: "🎧",
         },
       };
 
@@ -100,10 +126,13 @@
 
       for (let img in imgObj) {
         htmlText += `
-          <article>
-            <img src="./assets/${imgObj[img]["filename"]}" alt="${imgObj[img]["alt"]}" />            
-            <h4>${imgObj[img]["alt"]}</h4>
-          </article>
+          <fieldset class="card-container">
+            <article>
+              <img src="./assets/${imgObj[img]["filename"]}" alt="${imgObj[img]["alt"]}" />            
+            </article>
+            <legend>${imgObj[img]['emoji'].repeat(7)}</legend>
+            <p class="img-caption">${imgObj[img]["alt"]}</p>
+          </fieldset>
         `;
       }
 
