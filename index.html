@@ -23,6 +23,29 @@
         background-color: whitesmoke;
       }
 
+      .playlist-container {
+        position: fixed;
+        right: 1em;
+        bottom: 1em;
+        color: white;
+        background-color: rgba(1, 1, 1, 0.6);
+        padding: 1em 2em;
+        border-radius: 25px;
+        box-shadow: 2px 2px 2px black;
+        z-index: 100;
+      }
+
+      .playlist-container:hover {
+        background-color: rgba(1, 1, 1, 0.7);
+        cursor: pointer;
+      }
+
+      .playlist-control {
+        display: flex;
+        flex-direction: row;
+        gap: 0.3em;
+      }
+
       header,
       footer {
         padding: 4em 0;
@@ -155,9 +178,22 @@
         transition-duration: 0.5s;
       }
 
+      .playlist-btn {
+        color: inherit;
+        background-color: rgba(1, 1, 1, 0.6);
+        font-size: 0.5rem;
+      }
+
+      .playlist-btn:hover{
+        background-color: rgba(1, 1, 1, 0.7); 
+      }
+
+      .btn:hover {
+        cursor: pointer;
+      }
+
       .trigger-btn:hover {
         font-size: 2rem;
-        cursor: pointer;
       }
 
       .flex {
@@ -175,7 +211,7 @@
       @media (min-width: 1063px) {
         .collage {
           grid-template-columns: repeat(auto-fit, 500px);
-          grid-auto-rows: 740px;
+          grid-auto-rows: 770px;
         }
       }
 
@@ -193,46 +229,108 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1 class="hidden">Wrap</h1>
-    </header>
-    <main>
-      <div class="container">
-        <div class="btn-container">
-          <input
-            type="button"
-            value="CLICK HERE!"
-            class="btn primary-btn trigger-btn"
-          />
+    <div id="root">
+      <div class="playlist-container">
+        <div class="playlist">
+          <div></div>
+          <div></div>
         </div>
-        <section class="collage-section">
-          <div class="collage hidden">
-            <div class="section-heading-container">
-              <h2 class="section-heading">Collage</h2>
-              <p class="section-heading-para">
-                This section was designed to be a collage but I wanted to put
-                captions on each image so it turned out this way. So this is now
-                called an image card printed by an instant camera. Some of the
-                images are scenery or memory bc pictures of us have been deleted
-                :(
-              </p>
-            </div>
+        <div class="playlist-title"></div>
+        <div class="playlist-control">
+          <button id="previous" class="previous btn playlist-btn" aria-label="Previous">
+            <svg
+              width="24"
+              height="19"
+              viewBox="0 0 24 19"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M23.2248 0L7.03964 9.5L23.2248 19L23.2248 0Z"></path>
+              <rect
+                width="4.63633"
+                height="18.5453"
+                transform="matrix(-1 0 0 1 4.63633 0)"
+              ></rect>
+            </svg>
+          </button>
+          <button id="play" class="play btn playlist-btn" aria-label="Play">
+            <svg
+              width="17"
+              height="19"
+              viewBox="0 0 17 19"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0L16.1852 9.5L1.88952e-07 19L0 0Z"></path>
+            </svg></button
+          ><button id="pause" class="pause btn playlist-btn" aria-label="Pause">
+            <svg
+              width="17"
+              height="19"
+              viewBox="0 0 17 19"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 6.54013e-07H4.75V19H0V6.54013e-07Z"></path>
+              <path d="M11.4 0H16.15V19H11.4V0Z"></path>
+            </svg></button
+          ><button id="next" class="next btn playlist-btn" aria-label="Next">
+            <svg
+              width="24"
+              height="19"
+              viewBox="0 0 24 19"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0L16.1852 9.5L1.88952e-07 19L0 0Z"></path>
+              <rect x="18.5885" width="4.63633" height="18.5453"></rect>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <header>
+        <h1 class="hidden">Wrap</h1>
+      </header>
+      <main>
+        <div class="container">
+          <div class="btn-container">
+            <input
+              type="button"
+              value="CLICK HERE!"
+              class="btn primary-btn trigger-btn"
+            />
           </div>
-        </section>
-      </div>
-    </main>
-    <footer>
-      <div class="container footer-container hidden">
-        <p>© 2026 @jdelreyes &amp; @may. All rights reserved.</p>
-        <p>
-          a collection of
-          <a href="https://drive.proton.me/urls/VAPNJ5QNSM#LMYsuXnHiX" target="_blank"
-            >everything about us such as notes, pdfs, photos, & videos</a
-          >.
-        </p>
-        <p>designed, developed, implemented, & written by @jdelreyes.</p>
-      </div>
-    </footer>
+          <section class="collage-section">
+            <div class="collage hidden">
+              <div class="section-heading-container">
+                <h2 class="section-heading">Collage</h2>
+                <p class="section-heading-para">
+                  This section was designed to be a collage but I wanted to put
+                  captions on each image so it turned out this way. So this is
+                  now called an image card printed by an instant camera. Some of
+                  the images are scenery or memory bc pictures of us have been
+                  deleted :(
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer>
+        <div class="container footer-container hidden">
+          <p>© 2026 @jdelreyes &amp; @may. All rights reserved.</p>
+          <p>
+            a collection of
+            <a
+              href="https://drive.proton.me/urls/VAPNJ5QNSM#LMYsuXnHiX"
+              target="_blank"
+              >everything about us such as notes, pdfs, photos, & videos</a
+            >.
+          </p>
+          <p>designed, developed, implemented, & written by @jdelreyes.</p>
+        </div>
+      </footer>
+    </div>
     <script>
       const imgObj = {
         1: {
@@ -474,10 +572,26 @@
           emoji: "😽",
         },
       };
+      const songs = [
+        {
+          id: 0,
+          title: "EVERYTHING",
+          artist: "The Black Skirts",
+          filename: "EVERYTHING.mp3",
+          duration: "5:03",
+        },
+        {
+          id: 1,
+          title: "minamahal",
+          artist: "frank ely",
+          filename: "minamahal.mp3",
+          duration: "4:40",
+        },
+      ];
 
       const collageEl = document.querySelector(".collage");
       const triggerBtn = document.querySelector(".trigger-btn");
-      const audioEl = new Audio("./assets/music/bg-sound-long.mp3");
+      const audioEl = new Audio("./assets/music/EVERYTHING.mp3");
 
       let htmlText = ``;
 
