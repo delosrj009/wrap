@@ -53,8 +53,8 @@
       .collage {
         display: grid;
         grid-gap: 4em 1em;
-        grid-template-columns: repeat(auto-fit, 500px);
-        grid-auto-rows: 640px;
+        grid-template-columns: repeat(auto-fit, auto);
+        grid-auto-rows: auto;
         animation: collage-transition 1s;
       }
 
@@ -156,6 +156,13 @@
         align-items: center;
       }
 
+      @media (min-width: 1063px) {
+        .collage {
+          grid-template-columns: repeat(auto-fit, 500px);
+          grid-auto-rows: 640px;
+        }
+      }
+
       @keyframes collage-transition {
         from {
           transform: translateY(5%);
@@ -191,16 +198,14 @@
                 captions on each image so it turned out this way. So this is now
                 called an image card printed by an instant camera. Some of the
                 images are scenery or memory bc pictures of us have been deleted
-                :(. if u still have them we could replace it with us.
+                :(
               </p>
             </div>
           </div>
         </section>
       </div>
     </main>
-    <footer>
-      <!-- <audio src="bg-sound.mp3" loop></audio> -->
-    </footer>
+    <footer></footer>
     <script>
       const imgObj = {
         1: {
@@ -366,7 +371,7 @@
         34: {
           filename: "IMG_4209.jpg",
           alt: "first and last beach with u. we ate popeyes here while i kept avoiding the sand. wish i didnt and wish i was at the moment",
-          emoji: "",
+          emoji: "🌊",
         },
         100: {
           filename: "100.jpeg",
