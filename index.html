@@ -26,12 +26,12 @@
       header,
       footer {
         padding: 4em 0;
-        background-image: url("assets/bg.jpg");
+        background-image: url("assets/img/bg.jpg");
       }
 
       main {
         padding: 2em 0.5em;
-        background-image: url("assets/main-bg.jpg");
+        background-image: url("assets/img/main-bg.jpg");
       }
 
       .container {
@@ -376,7 +376,7 @@
           emoji: "😅",
         },
         25: {
-          filename: "IMG_2700.mp4",
+          filename: "IMG_2700.gif",
           title: "First Locker",
           description:
             "i don't have the picture where it has the penguin and things in it anymore. this was our personal space at college. the penguin is for emotional support. this is also where we store the food we cook for each other for the day. most of the things there are yours though",
@@ -418,14 +418,14 @@
           emoji: "🥃",
         },
         31: {
-          filename: "IMG_2881.mp4",
+          filename: "IMG_2881.gif",
           title: "Parokya ni Edgar",
           description:
             "first and last concert with you. this was perfect for me because i really like this band. i knew 95% of the songs. i wish we did more of this and went for the ben&ben. you were so hesitant when i invited you that i cancelled it but i wish we did anyway. sorry mai",
           emoji: "🎶",
         },
         32: {
-          filename: "IMG_0984.mp4",
+          filename: "IMG_0984.gif",
           title: "Harana",
           description:
             "i wanted to serenade you and nothing's going to stop me. not even arah and daddy looking at me at the balcony. i really wanted you to show that i knew how to play guitar and showoff my skills. i think this is now the foundation of our singing together where i would play the guitar.",
@@ -456,7 +456,7 @@
 
       const collageEl = document.querySelector(".collage");
       const triggerBtn = document.querySelector(".trigger-btn");
-      const audioEl = new Audio("./bg-sound-guitar.mp3");
+      const audioEl = new Audio("./assets/music/bg-sound-long.mp3");
 
       let htmlText = ``;
 
@@ -484,10 +484,10 @@
                 playsinline
                 loop
               >
-                <source src="./assets/${fn}" type="video/mp4">
+                <source src="./assets/img/${fn}" type="video/mp4">
                   Your browser does not support the video tag.
               </video>`
-          : `<img src="./assets/${fn}" alt="${description}" />`;
+          : `<img src="./assets/img/${fn}" alt="${description}" />`;
 
         htmlText += `
       <fieldset class="card-container">
