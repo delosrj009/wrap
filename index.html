@@ -381,16 +381,18 @@
       };
 
       const collageEl = document.querySelector(".collage");
-      const audioEl = new Audio("./bg-sound-long.mp3");
       const triggerBtn = document.querySelector(".trigger-btn");
+      const audioEl = new Audio("./bg-sound-guitar.mp3");
+
       let htmlText = ``;
 
       triggerBtn.addEventListener("click", () => {
         document.querySelector(".btn-container").classList.add("hidden");
+        collageEl.classList.remove("hidden");
+
         // TODO: uncomment later
         audioEl.loop = true;
         audioEl.play();
-        collageEl.classList.remove("hidden");
       });
 
       for (let imgId in imgObj) {
