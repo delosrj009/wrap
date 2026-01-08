@@ -226,7 +226,9 @@
         <p>© 2026 @jdelreyes &amp; @may. All rights reserved.</p>
         <p>
           a collection of
-          <a href="https://drive.proton.me/urls/VAPNJ5QNSM#LMYsuXnHiX" target="_blank"
+          <a
+            href="https://drive.proton.me/urls/VAPNJ5QNSM#LMYsuXnHiX"
+            target="_blank"
             >everything about us such as notes, pdfs, photos, & videos</a
           >.
         </p>
@@ -474,10 +476,26 @@
           emoji: "😽",
         },
       };
+      const songs = [
+        {
+          id: 0,
+          title: "EVERYTHING",
+          artist: "The Black Skirts",
+          filename: "EVERYTHING.mp3",
+          duration: "5:03",
+        },
+        {
+          id: 1,
+          title: "minamahal",
+          artist: "frank ely",
+          filename: "minamahal.mp3",
+          duration: "4:40",
+        },
+      ];
 
       const collageEl = document.querySelector(".collage");
       const triggerBtn = document.querySelector(".trigger-btn");
-      const audioEl = new Audio("./assets/music/bg-sound-long.mp3");
+      const audioEl = new Audio("./assets/music/EVERYTHING.mp3");
 
       let htmlText = ``;
 
