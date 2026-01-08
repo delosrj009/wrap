@@ -112,10 +112,15 @@
         height: 500px;
       }
 
+      .card-title {
+        padding: 0 0.5em;
+        font-size: 1.3rem;
+      }
+
       .img-caption {
         padding: 0 0.5em;
-        font-weight: bold;
         font-size: 1.2rem;
+        color: rgba(1, 1, 1, 0.75)
       }
 
       /* utilities */
@@ -159,7 +164,7 @@
       @media (min-width: 1063px) {
         .collage {
           grid-template-columns: repeat(auto-fit, 500px);
-          grid-auto-rows: 640px;
+          grid-auto-rows: 700px;
         }
       }
 
@@ -212,14 +217,14 @@
           filename: "1.jpeg",
           title: "CNE Sky Cable",
           description:
-            "CNE Sky Cable, our first hangout outside together. everything was so easy when i was with you. i could touch the sky",
+            "our first hangout outside together. everything was so easy when i was with you. i could touch the sky",
           emoji: "🚠",
         },
         2: {
           filename: "2.jpeg",
-          title: "",
+          title: "First New Year Together",
           description:
-            "First New Year Together, you were crying that day. also my mom cried bc i wasn't home. that's why i never did it again",
+            "you were crying that day. also my mom cried bc i wasn't home. that's why i never did it again",
           emoji: "🥳",
         },
         3: {
@@ -465,6 +470,7 @@
         const fn = item.filename;
         const description = item.description;
         const emojis = item.emoji.repeat(7);
+        const title = item.title;
 
         const mediaTag = fn.endsWith(".mp4")
           ? `
@@ -488,6 +494,7 @@
           <span class="imgId">${imgId}</span>
           <span class="emoji">${emojis}</span>
         </legend>
+        <h3 class="card-title">${title}</h3>
         <p class="img-caption">${description}</p>
       </fieldset>`;
       }
