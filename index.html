@@ -349,7 +349,11 @@
                   the images are scenes that tells a memory because half of our
                   pictures have been deleted. I tried to say whatever it's in my
                   mind. They represent what I thought about the little moments
-                  we have had while we still saw each other.
+                  we have had while we still saw each other. Good bye mai, i
+                  know i cannot be forgiven. God knows I've been very desperate
+                  for these past few months. I only made this because I want to
+                  make peace for myself. I hope you find your own peace. I'm
+                  grateful for all these years beside you.
                 </p>
               </div>
             </div>
@@ -366,6 +370,22 @@
               target="_blank"
               >everything about us such as notes, pdfs, photos, & videos</a
             >.
+          </p>
+          <p>
+            a
+            <a
+              href="https://open.spotify.com/playlist/2SWgs2ZMuhtyx81zo3WppF"
+              target="_blank"
+              >spotify playlist</a
+            >
+            i made for us.
+          </p>
+          <p>
+            the
+            <a href="https://github.com/delosrj009/wrap" target="_blank"
+              >source code</a
+            >
+            for this website for you.
           </p>
           <p>designed, developed, implemented, & written by @jdelreyes.</p>
         </div>
@@ -673,6 +693,11 @@
 
       let htmlText = ``;
 
+      audioEl.addEventListener("ended", () => {
+        currentTrack.id = (currentTrack.id + 1) % currentTrack.length;
+        playTrack();
+      });
+
       triggerBtn.addEventListener("click", () => {
         document.querySelector(".btn-container").classList.add("hidden");
         document.querySelector(".footer-container").classList.remove("hidden");
@@ -681,11 +706,6 @@
 
         renderCurrentSong();
         audioEl.play();
-      });
-
-      audioEl.addEventListener("ended", () => {
-        currentTrack.id++;
-        playTrack();
       });
 
       playBtn.addEventListener("click", () => {
@@ -711,6 +731,26 @@
         currentTrack.id--;
         playTrack();
       });
+
+      function renderCurrentSong() {
+        playlistTitleMarquee.textContent = `${songs[currentTrack.id].title} • ${
+          songs[currentTrack.id].artist
+        } • ${songs[currentTrack.id].duration} • ${
+          songs[currentTrack.id].album
+        }`;
+      }
+
+      function playTrack() {
+        if (currentTrack.id > currentTrack.length - 1) {
+          currentTrack.id = 0;
+        } else if (currentTrack.id < 0) {
+          currentTrack.id = currentTrack.length - 1;
+        }
+        audioEl.src = `${audioBaseUri}${songs[currentTrack.id].filename}`;
+        audioEl.currentTime = 0;
+        renderCurrentSong();
+        audioEl.play();
+      }
 
       for (let imgId in imgObj) {
         const item = imgObj[imgId];
@@ -747,30 +787,6 @@
       }
 
       collageEl.innerHTML += htmlText;
-
-      function renderCurrentSong() {
-        playlistTitleMarquee.textContent = `${songs[currentTrack.id].title} • ${
-          songs[currentTrack.id].artist
-        } • ${songs[currentTrack.id].duration} • ${
-          songs[currentTrack.id].album
-        }`;
-      }
-
-      function playTrack() {
-        if (currentTrack.id > currentTrack.length - 1) {
-          currentTrack.id = 0;
-        } else if (currentTrack.id < 0) {
-          currentTrack.id = currentTrack.length - 1;
-        }
-        audioEl.pause();
-        audioEl.currentTime = 0;
-        audioEl.src = "";
-        audioEl = new Audio(
-          `${audioBaseUri}${songs[currentTrack.id].filename}`
-        );
-        renderCurrentSong();
-        audioEl.play();
-      }
     </script>
     <!-- !DO NOT UNCOMMENT -->
     <!-- <script type="module" src="script.js"></script> -->
