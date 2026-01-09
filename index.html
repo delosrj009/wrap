@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spot</title>
     <meta name="author" content="@jdelreyes" />
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <style>
       *,
       *::before,
@@ -40,8 +40,14 @@
         max-width: 330px;
         width: 100%;
         margin: 0;
-        border: 0;
         min-inline-size: 0;
+        margin-inline: 2px;
+        border-width: 2px;
+        border-style: groove;
+        border-color: threedface;
+        border-image: initial;
+        padding-block: 0.35em 0.625em;
+        padding-inline: 0.75em;
       }
 
       .playlist-container:hover {
@@ -51,6 +57,7 @@
       .playlist-title {
         overflow: hidden;
         white-space: nowrap;
+        color: rgba(255, 255, 255, 0.9);
       }
 
       .playlist-title-marquee {
@@ -143,11 +150,7 @@
       }
 
       .playlist-legend {
-        text-align: center;
-        font-size: 1.8rem;
-        color: black;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 15px 15px 0 0;
+        font-size: 1.2rem;
       }
 
       .card-legend {
@@ -283,7 +286,7 @@
           <div></div>
           <div></div>
         </div> -->
-        <legend class="playlist-legend">☕️️ 2c 1s player ☕️️</legend>
+        <legend class="playlist-legend">☕️️ 2c1s music player</legend>
         <div class="playlist-title">
           <div class="playlist-title-marquee"></div>
         </div>
