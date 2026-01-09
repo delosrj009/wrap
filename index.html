@@ -622,11 +622,16 @@
       const collageEl = document.querySelector(".collage");
       const triggerBtn = document.querySelector(".trigger-btn");
 
-      const playlistContainer = document.querySelector(".playlist-container");
+      // audio
       const audioEl = new Audio("./assets/music/EVERYTHING.mp3");
+      const playlistContainer = document.querySelector(".playlist-container");
       const playlistTitleMarquee = document.querySelector(
         ".playlist-title-marquee"
       );
+
+      // playlist controls
+      const pauseBtn = document.querySelector(".pause");
+      const playBtn = document.querySelector(".play");
 
       // TODO: DELETE LATER
       playlistTitleMarquee.textContent =
@@ -643,6 +648,14 @@
         // TODO: uncomment later
         audioEl.loop = true;
         audioEl.play();
+      });
+
+      playBtn.addEventListener("click", () => {
+        audioEl.play();
+      });
+
+      pauseBtn.addEventListener("click", () => {
+        audioEl.pause();
       });
 
       for (let imgId in imgObj) {
