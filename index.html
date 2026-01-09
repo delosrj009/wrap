@@ -33,11 +33,28 @@
         border-radius: 25px;
         box-shadow: 2px 2px 2px black;
         z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1em;
+        max-width: 330px;
+        width: 100%;
       }
 
       .playlist-container:hover {
         background-color: rgba(1, 1, 1, 0.7);
         cursor: pointer;
+      }
+
+      .playlist-title {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .playlist-title-marquee {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 12s linear infinite;
       }
 
       .playlist-control {
@@ -184,8 +201,8 @@
         font-size: 0.5rem;
       }
 
-      .playlist-btn:hover{
-        background-color: rgba(1, 1, 1, 0.7); 
+      .playlist-btn:hover {
+        background-color: rgba(1, 1, 1, 0.7);
       }
 
       .btn:hover {
@@ -226,18 +243,29 @@
           opacity: 1;
         }
       }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
     </style>
   </head>
   <body>
     <div id="root">
-      <div class="playlist-container">
-        <div class="playlist">
+      <div class="playlist-container hidden">
+        <!-- <div class="playlist">
           <div></div>
           <div></div>
+        </div> -->
+        <div class="playlist-title">
+          <div class="playlist-title-marquee"></div>
         </div>
-        <div class="playlist-title"></div>
         <div class="playlist-control">
-          <button id="previous" class="previous btn playlist-btn" aria-label="Previous">
+          <button class="previous btn playlist-btn" aria-label="Previous">
             <svg
               width="24"
               height="19"
@@ -253,7 +281,7 @@
               ></rect>
             </svg>
           </button>
-          <button id="play" class="play btn playlist-btn" aria-label="Play">
+          <button class="play btn playlist-btn" aria-label="Play">
             <svg
               width="17"
               height="19"
@@ -263,7 +291,7 @@
             >
               <path d="M0 0L16.1852 9.5L1.88952e-07 19L0 0Z"></path>
             </svg></button
-          ><button id="pause" class="pause btn playlist-btn" aria-label="Pause">
+          ><button class="pause btn playlist-btn" aria-label="Pause">
             <svg
               width="17"
               height="19"
@@ -274,7 +302,7 @@
               <path d="M0 6.54013e-07H4.75V19H0V6.54013e-07Z"></path>
               <path d="M11.4 0H16.15V19H11.4V0Z"></path>
             </svg></button
-          ><button id="next" class="next btn playlist-btn" aria-label="Next">
+          ><button class="next btn playlist-btn" aria-label="Next">
             <svg
               width="24"
               height="19"
@@ -579,6 +607,7 @@
           artist: "The Black Skirts",
           filename: "EVERYTHING.mp3",
           duration: "5:03",
+          album: "TEAM BABY",
         },
         {
           id: 1,
@@ -586,12 +615,27 @@
           artist: "frank ely",
           filename: "minamahal.mp3",
           duration: "4:40",
+          album: "Frank Ely!",
         },
       ];
 
       const collageEl = document.querySelector(".collage");
       const triggerBtn = document.querySelector(".trigger-btn");
+
+      // audio
       const audioEl = new Audio("./assets/music/EVERYTHING.mp3");
+      const playlistContainer = document.querySelector(".playlist-container");
+      const playlistTitleMarquee = document.querySelector(
+        ".playlist-title-marquee"
+      );
+
+      // playlist controls
+      const pauseBtn = document.querySelector(".pause");
+      const playBtn = document.querySelector(".play");
+
+      // TODO: DELETE LATER
+      playlistTitleMarquee.textContent =
+        "EVERYTHING • The Black Skirts • 5:03 • TEAM BABY";
 
       let htmlText = ``;
 
@@ -599,10 +643,19 @@
         document.querySelector(".btn-container").classList.add("hidden");
         document.querySelector(".footer-container").classList.remove("hidden");
         collageEl.classList.remove("hidden");
+        playlistContainer.classList.remove("hidden");
 
         // TODO: uncomment later
         audioEl.loop = true;
         audioEl.play();
+      });
+
+      playBtn.addEventListener("click", () => {
+        audioEl.play();
+      });
+
+      pauseBtn.addEventListener("click", () => {
+        audioEl.pause();
       });
 
       for (let imgId in imgObj) {
