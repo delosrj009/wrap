@@ -201,7 +201,8 @@
         font-size: 0.5rem;
       }
 
-      .playlist-btn-clicked, .playlist-btn:active {
+      .playlist-btn-clicked,
+      .playlist-btn:active {
         background-color: rgba(132, 132, 132, 0.8);
       }
 
@@ -636,7 +637,8 @@
       const triggerBtn = document.querySelector(".trigger-btn");
 
       // audio
-      const audioEl = new Audio("./assets/music/EVERYTHING.mp3");
+      const audioBaseUri = "./assets/music/";
+      let audioEl = new Audio(`${audioBaseUri}EVERYTHING.mp3`);
       const playlistContainer = document.querySelector(".playlist-container");
       const playlistTitleMarquee = document.querySelector(
         ".playlist-title-marquee"
@@ -648,10 +650,6 @@
       const previousBtn = document.querySelector(".previous");
       const nextBtn = document.querySelector(".next");
 
-      // TODO: DELETE LATER
-      playlistTitleMarquee.textContent =
-        "EVERYTHING • The Black Skirts • 5:03 • TEAM BABY";
-
       let htmlText = ``;
 
       triggerBtn.addEventListener("click", () => {
@@ -660,21 +658,37 @@
         collageEl.classList.remove("hidden");
         playlistContainer.classList.remove("hidden");
 
-        // TODO: uncomment later
-        audioEl.loop = true;
+        renderCurrentSong();
         audioEl.play();
       });
 
+      audioEl.addEventListener("ended", () => {
+        currentTrack.id++;
+        playTrack();
+      });
+
       playBtn.addEventListener("click", () => {
+        if (playBtn.classList.contains("playlist-btn-clicked")) return;
         playBtn.classList.toggle("playlist-btn-clicked");
         pauseBtn.classList.toggle("playlist-btn-clicked");
         audioEl.play();
       });
 
       pauseBtn.addEventListener("click", () => {
+        if (pauseBtn.classList.contains("playlist-btn-clicked")) return;
         playBtn.classList.toggle("playlist-btn-clicked");
         pauseBtn.classList.toggle("playlist-btn-clicked");
         audioEl.pause();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        currentTrack.id++;
+        playTrack();
+      });
+
+      previousBtn.addEventListener("click", () => {
+        currentTrack.id--;
+        playTrack();
       });
 
       for (let imgId in imgObj) {
@@ -712,6 +726,30 @@
       }
 
       collageEl.innerHTML += htmlText;
+
+      function renderCurrentSong() {
+        playlistTitleMarquee.textContent = `${songs[currentTrack.id].title} • ${
+          songs[currentTrack.id].artist
+        } • ${songs[currentTrack.id].duration} • ${
+          songs[currentTrack.id].album
+        }`;
+      }
+
+      function playTrack() {
+        if (currentTrack.id > currentTrack.length - 1) {
+          currentTrack.id = 0;
+        } else if (currentTrack.id < 0) {
+          currentTrack.id = currentTrack.length + 1;
+        }
+        audioEl.pause();
+        audioEl.currentTime = 0;
+        audioEl.src = "";
+        audioEl = new Audio(
+          `${audioBaseUri}${songs[currentTrack.id].filename}`
+        );
+        renderCurrentSong();
+        audioEl.play();
+      }
     </script>
     <!-- !DO NOT UNCOMMENT -->
     <!-- <script type="module" src="script.js"></script> -->
