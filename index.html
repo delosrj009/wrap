@@ -201,8 +201,8 @@
         font-size: 0.5rem;
       }
 
-      .playlist-btn:hover {
-        background-color: rgba(1, 1, 1, 0.7);
+      .playlist-btn-clicked, .playlist-btn:active {
+        background-color: rgba(132, 132, 132, 0.8);
       }
 
       .btn:hover {
@@ -265,7 +265,11 @@
           <div class="playlist-title-marquee"></div>
         </div>
         <div class="playlist-control">
-          <button class="previous btn playlist-btn" aria-label="Previous">
+          <button
+            id="previous"
+            class="previous btn playlist-btn"
+            aria-label="Previous"
+          >
             <svg
               width="24"
               height="19"
@@ -281,7 +285,11 @@
               ></rect>
             </svg>
           </button>
-          <button class="play btn playlist-btn" aria-label="Play">
+          <button
+            id="play"
+            class="play btn playlist-btn playlist-btn-clicked"
+            aria-label="Play"
+          >
             <svg
               width="17"
               height="19"
@@ -291,7 +299,7 @@
             >
               <path d="M0 0L16.1852 9.5L1.88952e-07 19L0 0Z"></path>
             </svg></button
-          ><button class="pause btn playlist-btn" aria-label="Pause">
+          ><button id="pause" class="pause btn playlist-btn" aria-label="Pause">
             <svg
               width="17"
               height="19"
@@ -302,7 +310,7 @@
               <path d="M0 6.54013e-07H4.75V19H0V6.54013e-07Z"></path>
               <path d="M11.4 0H16.15V19H11.4V0Z"></path>
             </svg></button
-          ><button class="next btn playlist-btn" aria-label="Next">
+          ><button id="next" class="next btn playlist-btn" aria-label="Next">
             <svg
               width="24"
               height="19"
@@ -618,7 +626,12 @@
           album: "Frank Ely!",
         },
       ];
+      const currentTrack = {
+        length: songs.length,
+        id: 0,
+      };
 
+      // generic elements
       const collageEl = document.querySelector(".collage");
       const triggerBtn = document.querySelector(".trigger-btn");
 
@@ -632,6 +645,8 @@
       // playlist controls
       const pauseBtn = document.querySelector(".pause");
       const playBtn = document.querySelector(".play");
+      const previousBtn = document.querySelector(".previous");
+      const nextBtn = document.querySelector(".next");
 
       // TODO: DELETE LATER
       playlistTitleMarquee.textContent =
@@ -651,10 +666,14 @@
       });
 
       playBtn.addEventListener("click", () => {
+        playBtn.classList.toggle("playlist-btn-clicked");
+        pauseBtn.classList.toggle("playlist-btn-clicked");
         audioEl.play();
       });
 
       pauseBtn.addEventListener("click", () => {
+        playBtn.classList.toggle("playlist-btn-clicked");
+        pauseBtn.classList.toggle("playlist-btn-clicked");
         audioEl.pause();
       });
 
