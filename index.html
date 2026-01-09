@@ -739,7 +739,7 @@
         if (currentTrack.id > currentTrack.length - 1) {
           currentTrack.id = 0;
         } else if (currentTrack.id < 0) {
-          currentTrack.id = currentTrack.length + 1;
+          currentTrack.id = currentTrack.length - 1;
         }
         audioEl.pause();
         audioEl.currentTime = 0;
