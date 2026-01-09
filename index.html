@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wrap</title>
+    <title>Spot</title>
     <meta name="author" content="@jdelreyes" />
-    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <style>
       *,
       *::before,
@@ -39,6 +39,9 @@
         gap: 1em;
         max-width: 330px;
         width: 100%;
+        margin: 0;
+        border: 0;
+        min-inline-size: 0;
       }
 
       .playlist-container:hover {
@@ -62,7 +65,7 @@
         gap: 0.3em;
       }
 
-      header,
+      /* header, */
       footer {
         padding: 4em 0;
         background-image: url("assets/img/bg.jpg");
@@ -120,7 +123,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 55vh;
+        height: 100vh;
       }
 
       .section-heading,
@@ -139,7 +142,15 @@
         line-height: 1.5em;
       }
 
-      legend {
+      .playlist-legend {
+        text-align: center;
+        font-size: 1.8rem;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 15px 15px 0 0;
+      }
+
+      .card-legend {
         text-align: center;
         font-size: 2rem;
       }
@@ -267,11 +278,12 @@
   </head>
   <body>
     <div id="root">
-      <div class="playlist-container hidden">
+      <fieldset class="playlist-container hidden">
         <!-- <div class="playlist">
           <div></div>
           <div></div>
         </div> -->
+        <legend class="playlist-legend">☕️️ 2c 1s player ☕️️</legend>
         <div class="playlist-title">
           <div class="playlist-title-marquee"></div>
         </div>
@@ -334,7 +346,7 @@
             </svg>
           </button>
         </div>
-      </div>
+      </fieldset>
       <header>
         <h1 class="hidden">Wrap</h1>
       </header>
@@ -790,7 +802,7 @@
         <article>
           ${mediaTag}
         </article>
-        <legend>
+        <legend class="card-legend">
           <span class="imgId">${imgId}</span>
           <span class="emoji">${emojis}</span>
         </legend>
