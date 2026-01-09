@@ -136,7 +136,8 @@
       }
 
       .section-heading-para {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
+        line-height: 1.5em;
       }
 
       legend {
@@ -343,10 +344,12 @@
                 <h2 class="section-heading">Collage</h2>
                 <p class="section-heading-para">
                   This section was designed to be a collage but I wanted to put
-                  captions on each image so it turned out this way. So this is
-                  now called an image card printed by an instant camera. Some of
-                  the images are scenery or memory bc pictures of us have been
-                  deleted :(
+                  captions on each image so it turned out this way. So, this is
+                  now called image cards printed by an instant camera. Some of
+                  the images are scenes that tells a memory because half of our
+                  pictures have been deleted. I tried to say whatever it's in my
+                  mind. They represent what I thought about the little moments
+                  we have had while we still saw each other.
                 </p>
               </div>
             </div>
@@ -654,7 +657,9 @@
 
       // audio
       const audioBaseUri = "./assets/music/";
-      let audioEl = new Audio(`${audioBaseUri}EVERYTHING.mp3`);
+      let audioEl = new Audio(
+        `${audioBaseUri}${songs[currentTrack.id].filename}`
+      );
       const playlistContainer = document.querySelector(".playlist-container");
       const playlistTitleMarquee = document.querySelector(
         ".playlist-title-marquee"
