@@ -578,6 +578,12 @@
             "this was on october 3, 2022. 2 days after i confessed my feelings to u. it was so new and awkward, we were slowly but surely transitioning from a platonic relationship to a romantic one. we ended up at Dniz's house and watched a movie (i think it's jeffrey dahmer).",
           emoji: "😅",
         },
+        24: {
+          filename: "IMG_2278.jpeg",
+          title: "Physical memories",
+          description: "",
+          emoji: "🎞️",
+        },
         25: {
           filename: "IMG_2700.gif",
           title: "First Locker",
@@ -621,7 +627,8 @@
           emoji: "🥃",
         },
         31: {
-          filename: "IMG_2881.gif",
+          // filename: "IMG_2881.gif",
+          filename: "IMG_2282.jpeg",
           title: "Parokya ni Edgar",
           description:
             "first and last concert with you. this was perfect for me because i really like this band. i knew 95% of the songs. Azhly and Symon were so kind. i wish we did more of this and went for the ben&ben. you were so hesitant when i invited you that i cancelled it, but i wish we did it anyway. sorry mai",
@@ -647,6 +654,60 @@
           description:
             "before we went here, we went to get popeyes, the washroom there was so fishy, but i was with you so it's okay. i was worried that the sand would get into my socks. i just wish that i didn't worry about that and enjoyed the moment with you instead just like any other things we're together.",
           emoji: "🌊",
+        },
+        35: {
+          filename: "IMG_2288.jpeg",
+          title: "Bahay moments",
+          description: "",
+          emoji: "🏠",
+        },
+        36: {
+          filename: "IMG_2287.jpeg",
+          title: "Random Moments",
+          description: "",
+          emoji: "🤔",
+        },
+        37: {
+          filename: "IMG_2285.jpeg",
+          title: "Bag Snatcher",
+          description: "",
+          emoji: "🙅‍♂️",
+        },
+        38: {
+          filename: "IMG_2273.jpeg",
+          title: "Photo booth on my Laptop",
+          description: "",
+          emoji: "📸",
+        },
+        39: {
+          filename: "IMG_2281.jpeg",
+          title: "Valentine's day at Rec Room",
+          description: "",
+          emoji: "📹",
+        },
+        40: {
+          filename: "IMG_2283.jpeg",
+          title: "Skating with You",
+          description: "",
+          emoji: "⛸️",
+        },
+        41: {
+          filename: "IMG_2279.jpeg",
+          title: "Building Flower Lego w/ You",
+          description: "",
+          emoji: "🧱",
+        },
+        42: {
+          filename: "IMG_2280.jpeg",
+          title: "Aquarium With You",
+          description: "",
+          emoji: "🐡",
+        },
+        43: {
+          filename: "IMG_2290.jpeg",
+          title: "Groceries W/ You",
+          description: "",
+          emoji: "🛒",
         },
         100: {
           filename: "100.jpeg",
@@ -741,12 +802,13 @@
       });
 
       nextBtn.addEventListener("click", () => {
-        currentTrack.id++;
+        currentTrack.id = (currentTrack.id + 1) % currentTrack.length;
         playTrack();
       });
 
       previousBtn.addEventListener("click", () => {
-        currentTrack.id--;
+        if (currentTrack.id - 1 < 0) currentTrack.id = currentTrack.length - 1;
+        else currentTrack.id--;
         playTrack();
       });
 
@@ -769,11 +831,6 @@
       }
 
       function playTrack() {
-        if (currentTrack.id > currentTrack.length - 1) {
-          currentTrack.id = 0;
-        } else if (currentTrack.id < 0) {
-          currentTrack.id = currentTrack.length - 1;
-        }
         audioEl.src = `${audioBaseUri}${songs[currentTrack.id].filename}`;
         audioEl.currentTime = 0;
         renderCurrentSong();
